@@ -1,0 +1,23 @@
+.dialogs {
+    display: grid;
+    grid-template-areas: "left right";
+    grid-template-columns: 1fr 3fr;
+}
+
+.dialogsItems {
+    grid-area: left;
+    padding: 10px;
+}
+
+.dialogsItems .active {
+    color: hotpink;
+}
+
+.dialog {}
+
+.messages {
+    grid-area: right;
+    padding: 10px;
+}
+
+.message {}
