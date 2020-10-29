@@ -1,7 +1,24 @@
-ProfileInfoWrapper {
-    
+.wrapper {
+    display: grid;
+    grid-template-areas: 
+    "backgroundImage backgroundImage"
+    "avatar description";
+    grid-template-rows: auto auto;
+    grid-template-columns: 300px 1fr;
 }
 
-.background img {
+.avatar {
+    grid-area: avatar;
+}
+
+.descriprion {
+    grid-area: description;
+}
+
+.avatar img {
     height: 200px;
+}
+
+.backgroundImage img {
+    width: 980px;
 }
