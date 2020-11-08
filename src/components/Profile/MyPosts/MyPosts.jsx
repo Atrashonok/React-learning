@@ -7,7 +7,7 @@ const MyPosts = (props) => {
   return (
     <div>
       <h2>My posts</h2>
-      <NewPost />
+      <NewPost addPost={props.addPost} />
 
       <div className={classes.posts}>
         {props.postsData.map((post) => (

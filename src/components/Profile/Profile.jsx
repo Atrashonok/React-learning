@@ -15,7 +15,8 @@ const Profile = (props) => {
         backgroundImageSRC="https://images.unsplash.com/photo-1509225770129-fbcf8a696c0b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"
       />
 
-      <MyPosts postsData={props.postsData} />
+      <MyPosts postsData={props.postsData} 
+      addPost={props.addPost} />
     </div>
   );
 };

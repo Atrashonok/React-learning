@@ -14,3 +14,7 @@
     grid-area: right;
     padding: 10px;
 }
+
+.newMessage {
+    margin: 10px;
+}
