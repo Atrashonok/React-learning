@@ -6,23 +6,11 @@
 
 .dialogsItems {
     grid-area: left;
-    padding: 10px;
-}
-
-.dialog a {
-    color: black;
-    text-decoration: none;
-}
-
-.dialog a.activeDialog {
-    color: hotpink;
-    text-decoration: underline;
+    border-width: 0px 1px 0px 0px;
+    border-style: solid;
 }
 
 .messages {
     grid-area: right;
     padding: 10px;
-}
-
-.message {
 }

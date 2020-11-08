@@ -1,0 +1,13 @@
+.wrapper {
+    margin: 10px;
+    padding: 10px;
+    background-color: #b6e0e681;
+    border-radius: 10px;
+}
+
+.mine {
+    text-align: right;
+}
+
+.friend {
+}

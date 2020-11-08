@@ -3,7 +3,7 @@ import classes from "./Profile.module.css";
 import MyPosts from "./MyPosts/MyPosts";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
-const Profile = () => {
+const Profile = (props) => {
   return (
     <div className={classes.content}>
       <ProfileInfo
@@ -15,7 +15,7 @@ const Profile = () => {
         backgroundImageSRC="https://images.unsplash.com/photo-1509225770129-fbcf8a696c0b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"
       />
 
-      <MyPosts />
+      <MyPosts postsData={props.postsData} />
     </div>
   );
 };

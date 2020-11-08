@@ -1,0 +1,25 @@
+.dialog {
+    margin: 10px;
+    padding: 5px;
+    background-color: #b6e0e681;
+    border-radius: 10px;
+}
+
+.dialog a {
+    color: black;
+    text-decoration: none;
+}
+
+.dialog a.activeDialog {
+    color: hotpink;
+    text-decoration: underline;
+    text-align: right;
+    transition: color 0.7s;
+}
+
+.dialog img {
+    height: 30px;
+    width: 30px;
+    border-radius: 10px;
+    margin-right: 10px;
+}
