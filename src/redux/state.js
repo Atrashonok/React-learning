@@ -18,6 +18,7 @@ let state = {
           "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTOAs4W1oDheD8oRE6KspKzmy9EdQmciyHC9w&usqp=CAU",
       },
     ],
+    newPostText: "new post",
   },
 
   dialogsPage: {
@@ -110,16 +111,24 @@ let state = {
   },
 };
 
-export let addPost = (text) => {
+window.state = state;
+
+export let addPost = () => {
   let newPost = {
     id: 3,
-    message: text,
+    message: state.profilePage.newPostText,
     likesCount: 0,
     avatar:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSE2_4ZaThwQbloPcJIs0DK-Dcf3XuK5JHZ9g&usqp=CAU",
   };
 
   state.profilePage.postsData.push(newPost);
+  updateNewPostText("");
+  rerenderEntireTree(state);
+};
+
+export let updateNewPostText = (newText) => {
+  state.profilePage.newPostText = newText;
   rerenderEntireTree(state);
 };
 

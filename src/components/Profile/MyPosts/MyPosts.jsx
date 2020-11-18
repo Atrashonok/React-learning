@@ -7,7 +7,11 @@ const MyPosts = (props) => {
   return (
     <div>
       <h2>My posts</h2>
-      <NewPost addPost={props.addPost} />
+      <NewPost
+        addPost={props.addPost}
+        newPostText={props.newPostText}
+        updateNewPostText={props.updateNewPostText}
+      />
 
       <div className={classes.posts}>
         {props.postsData.map((post) => (
