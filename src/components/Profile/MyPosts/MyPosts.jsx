@@ -7,14 +7,12 @@ const MyPosts = (props) => {
   return (
     <div>
       <h2>My posts</h2>
-      <NewPost
-        addPost={props.addPost}
-        newPostText={props.newPostText}
-        updateNewPostText={props.updateNewPostText}
-      />
+      <NewPost dispatch={props.dispatch} 
+      state={props.state} />
+      
 
       <div className={classes.posts}>
-        {props.postsData.map((post) => (
+        {props.state.profilePage.postsData.map((post) => (
           <Post
             message={post.message}
             likeCounts={post.likesCount}

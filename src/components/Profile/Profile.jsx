@@ -15,12 +15,10 @@ const Profile = (props) => {
         backgroundImageSRC="https://images.unsplash.com/photo-1509225770129-fbcf8a696c0b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"
       />
 
-      <MyPosts postsData={props.postsData} 
-      addPost={props.addPost} 
-      newPostText={props.newPostText} 
-      updateNewPostText={props.updateNewPostText}
+      <MyPosts dispatch={props.dispatch} 
+      state={props.state}
       />
-    
+      
     </div>
   );
 };

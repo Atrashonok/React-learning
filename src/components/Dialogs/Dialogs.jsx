@@ -8,23 +8,29 @@ const Dialogs = (props) => {
 
   let onMessageChange = () => {
     let newText = newMessageElement.current.value;
-    props.updateNewMessageText(newText);
+
+    props.dispatch({
+      type: "UPDATE-NEW-MESSAGE-TEXT",
+      newText: newText,
+    });
   };
 
   let addMessage = () => {
-    props.addMessage();
+    props.dispatch({
+      type: "ADD-MESSAGE",
+    });
   };
 
   return (
     <div className={classes.dialogs}>
       <div className={classes.dialogsItems}>
-        {props.dialogsData.map((item) => (
+        {props.state.dialogsPage.dialogsData.map((item) => (
           <DialogItem id={item.id} name={item.name} avatar={item.avatar} />
         ))}
       </div>
 
       <div className={classes.messages}>
-        {props.messagesData.map((item) => (
+        {props.state.dialogsPage.messagesData.map((item) => (
           <Message message={item.message} from={item.from} />
         ))}
         <div className={classes.newMessage}>
@@ -32,7 +38,7 @@ const Dialogs = (props) => {
             <textarea
               ref={newMessageElement}
               onChange={onMessageChange}
-              value={props.newMessageText}
+              value={props.state.dialogsPage.newMessageText}
             />
           </div>
           <div>

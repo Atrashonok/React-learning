@@ -20,28 +20,18 @@ const App = (props) => {
           path="/profile"
           render={() => (
             <Profile
-              postsData={props.state.profilePage.postsData}
-              addPost={props.addPost}
-              newPostText={props.state.profilePage.newPostText}
-              updateNewPostText={props.updateNewPostText}
+              state={props.state}
+              dispatch={props.dispatch}
             />
           )}
         />
-        <Route
-          path="/friends"
-          render={() => (
-            <Friends friendsData={props.state.friendsPage.friendsData} />
-          )}
-        />
+        <Route path="/friends" render={() => <Friends state={props.state} />} />
         <Route
           path="/dialogs"
           render={() => (
             <Dialogs
-              dialogsData={props.state.dialogsPage.dialogsData}
-              messagesData={props.state.dialogsPage.messagesData}
-              addMessage={props.addMessage}
-              newMessageText={props.state.dialogsPage.newMessageText}
-              updateNewMessageText={props.updateNewMessageText}
+              state={props.state}
+              dispatch={props.dispatch}
             />
           )}
         />

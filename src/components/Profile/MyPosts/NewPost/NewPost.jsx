@@ -4,12 +4,18 @@ const NewPost = (props) => {
   let newPostElement = React.createRef();
 
   let onPostChange = () => {
-    let text = newPostElement.current.value;
-    props.updateNewPostText(text);
+    let newText = newPostElement.current.value;
+
+    props.dispatch({
+      type: "UPDATE-NEW-POST-TEXT",
+      newText: newText,
+    });
   };
 
   let addPost = () => {
-    props.addPost();
+    props.dispatch({
+      type: "ADD-POST",
+    });
   };
 
   return (
@@ -18,7 +24,7 @@ const NewPost = (props) => {
         <textarea
           ref={newPostElement}
           onChange={onPostChange}
-          value={props.newPostText}
+          value={props.state.profilePage.newPostText}
         />
       </div>
       <div>
