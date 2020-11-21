@@ -1,3 +1,8 @@
+const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
+const ADD_POST = "ADD-POST";
+const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT";
+const ADD_MESSAGE = "ADD-MESSAGE";
+
 let store = {
   _state: {
     profilePage: {
@@ -153,5 +158,19 @@ let store = {
     }
   },
 };
+
+export const updateNewPostTextActionCreator = (text) => ({
+  type: UPDATE_NEW_POST_TEXT,
+  newText: text,
+});
+
+export const addPostActionCreator = () => ({ type: ADD_POST });
+
+export const updateNewMessageTextActionCreator = (newText) => ({
+  type: UPDATE_NEW_MESSAGE_TEXT,
+  newText: newText,
+});
+
+export const addMessageActionCreator = () => ({ type: ADD_MESSAGE });
 
 export default store;
