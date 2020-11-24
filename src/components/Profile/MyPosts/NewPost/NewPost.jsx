@@ -1,16 +1,17 @@
 import React from "react";
-import { updateNewPostTextActionCreator, addPostActionCreator } from './../../../../redux/state'
-
+import {
+  updateNewPostTextActionCreator,
+  addPostActionCreator,
+} from "./../../../../redux/profilePageReducer";
 
 const NewPost = (props) => {
-  let newPostElement = React.createRef();
 
-  let onPostChange = () => {
-    let newText = newPostElement.current.value;
+  let onPostChange = (event) => {
+    let newText = event.target.value;
+    
     props.dispatch(updateNewPostTextActionCreator(newText));
   };
-
-  let addPost = () => {
+  let onAddPost = () => {
     props.dispatch(addPostActionCreator());
   };
 
@@ -18,13 +19,12 @@ const NewPost = (props) => {
     <div>
       <div>
         <textarea
-          ref={newPostElement}
           onChange={onPostChange}
           value={props.state.profilePage.newPostText}
         />
       </div>
       <div>
-        <button onClick={addPost}>Add post</button>
+        <button onClick={onAddPost}>Add post</button>
       </div>
     </div>
   );
