@@ -7,7 +7,67 @@ export const updateNewMessageTextActionCreator = (newText) => ({
 });
 export const addMessageActionCreator = () => ({ type: ADD_MESSAGE });
 
-const dialogsPageReducer = (state, action) => {
+let initialState = {
+  dialogsData: [
+    {
+      id: "1",
+      name: "Alex",
+      avatar:
+        "https://greendestinations.org/wp-content/uploads/2019/05/avatar-exemple.jpg",
+    },
+    {
+      id: "2",
+      name: "Dmitry",
+      avatar:
+        "https://greendestinations.org/wp-content/uploads/2019/05/avatar-exemple.jpg",
+    },
+    {
+      id: "3",
+      name: "Andrey",
+      avatar:
+        "https://greendestinations.org/wp-content/uploads/2019/05/avatar-exemple.jpg",
+    },
+    {
+      id: "4",
+      name: "Alexey",
+      avatar:
+        "https://greendestinations.org/wp-content/uploads/2019/05/avatar-exemple.jpg",
+    },
+    {
+      id: "5",
+      name: "Nikita",
+      avatar:
+        "https://greendestinations.org/wp-content/uploads/2019/05/avatar-exemple.jpg",
+    },
+    {
+      id: "6",
+      name: "Max",
+      avatar:
+        "https://greendestinations.org/wp-content/uploads/2019/05/avatar-exemple.jpg",
+    },
+    {
+      id: "7",
+      name: "Lena",
+      avatar:
+        "https://greendestinations.org/wp-content/uploads/2019/05/avatar-exemple.jpg",
+    },
+    {
+      id: "8",
+      name: "Anna",
+      avatar:
+        "https://greendestinations.org/wp-content/uploads/2019/05/avatar-exemple.jpg",
+    },
+  ],
+  messagesData: [
+    { id: "1", message: "hi", from: "friend" },
+    { id: "2", message: "how are u?", from: "friend" },
+    { id: "3", message: "fine, u?", from: "mine" },
+    { id: "4", message: "me 2", from: "friend" },
+  ],
+  newMessageText: "new message",
+};
+
+const dialogsPageReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_MESSAGE:
       let newMessage = {

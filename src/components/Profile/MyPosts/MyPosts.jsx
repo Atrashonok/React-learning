@@ -1,16 +1,14 @@
 import React from "react";
 import classes from "./MyPosts.module.css";
-import NewPost from "./NewPost/NewPost";
+import NewPostContainer from "./NewPost/NewPostContainer";
 import Post from "./Post/Post";
 
 const MyPosts = (props) => {
-  return (
+    return (
     <div>
       <h2>My posts</h2>
-      <NewPost dispatch={props.dispatch} 
-      state={props.state} />
+      <NewPostContainer store={props.store} />
       
-
       <div className={classes.posts}>
         {props.state.profilePage.postsData.map((post) => (
           <Post
