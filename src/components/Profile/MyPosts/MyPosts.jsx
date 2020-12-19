@@ -31,6 +31,7 @@ const MyPosts = (props) => {
             message={post.message}
             likeCounts={post.likesCount}
             avatar={post.avatar}
+            key={post.id}
           />
         ))}
       </div>

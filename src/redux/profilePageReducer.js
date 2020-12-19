@@ -28,31 +28,27 @@ let initialState = {
 };
 
 const profilePageReducer = (state = initialState, action) => {
-    
   switch (action.type) {
-    case ADD_POST: {
+    case ADD_POST:
       let newPost = {
-        id: 3,
+        id: state.postsData.length + 1,
         message: state.newPostText,
         likesCount: 0,
         avatar:
           "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSE2_4ZaThwQbloPcJIs0DK-Dcf3XuK5JHZ9g&usqp=CAU",
       };
 
-      let stateCopy = { ...state };
-      stateCopy.postsData = [...state.postsData];
+      return {
+        ...state,
+        postsData: [newPost, ...state.postsData],
+        newPostText: "",
+      };
 
-      stateCopy.postsData.push(newPost);
-      stateCopy.newPostText = "";
-
-      return stateCopy;
-    }
-
-    case UPDATE_NEW_POST_TEXT: {
-      let stateCopy = { ...state };
-      stateCopy.newPostText = action.newText;
-      return stateCopy;
-    }
+    case UPDATE_NEW_POST_TEXT:
+      return {
+        ...state,
+        newPostText: action.newText,
+      };
 
     default:
       return state;

@@ -18,14 +18,14 @@ const Dialogs = (props) => {
     <div className={classes.dialogs}>
       <div className={classes.dialogsItems}>
         {props.dialogsPage.dialogsData.map((item) => (
-          <DialogItem id={item.id} name={item.name} avatar={item.avatar} />
+          <DialogItem id={item.id} name={item.name} avatar={item.avatar} key={item.id}/>
         ))}
       </div>
 
       <div className={classes.messages}>
         <div className={classes.history}>
           {props.dialogsPage.messagesData.map((item) => (
-            <Message message={item.message} from={item.from} />
+            <Message message={item.message} from={item.from} key={item.id} />
           ))}
         </div>
         <div className={classes.newMessage}>

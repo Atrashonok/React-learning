@@ -5,7 +5,7 @@ let Friends = (props) => {
   return (
     <div>
       {props.store.getState().friendsPage.friendsData.map((item) => (
-        <Friend name={item.name} avatar={item.avatar} />
+        <Friend name={item.name} avatar={item.avatar} key={item.id}/>
       ))}
     </div>
   );
