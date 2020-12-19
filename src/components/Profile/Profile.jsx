@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "./Profile.module.css";
-import MyPosts from "./MyPosts/MyPosts";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
+import MyPostsContainer from "./MyPosts/Post/MyPostsContainer";
 
 const Profile = (props) => {
   return (
@@ -15,10 +15,7 @@ const Profile = (props) => {
         backgroundImageSRC="https://images.unsplash.com/photo-1509225770129-fbcf8a696c0b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"
       />
 
-      <MyPosts dispatch={props.dispatch} 
-      state={props.state}
-      store={props.store}
-      />
+      <MyPostsContainer />
       
     </div>
   );
