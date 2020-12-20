@@ -1,0 +1,25 @@
+.user {
+    display: grid;
+    grid-template-areas: 
+    'avatar description' 
+    'button status';
+    grid-template-rows: 80px 25px;
+    grid-template-columns: 80px 1fr;
+    padding: 10px;
+}
+
+.avatar {
+    grid-area: avatar;
+    height: 80px;
+    width: 80px;
+}
+
+.followButton {
+    grid-area: button;
+    margin-top: 5px;
+    width: 80px
+}
+
+.description {
+    grid-area: description;
+}
