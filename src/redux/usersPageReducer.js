@@ -16,32 +16,7 @@ export const setUsersAC = (users) => ({
 });
 
 let initialState = {
-  users: [
-    {
-      id: '1',
-      followed: false,
-      avatar: "https://html5css.ru/w3images/avatar2.png",
-      fullname: "Alex A.",
-      location: { country: "Belarus", city: "Brest" },
-      status: "looking for a job",
-    },
-    {
-      id: '2',
-      followed: true,
-      avatar: "https://html5css.ru/w3images/avatar2.png",
-      fullname: "Dima K.",
-      location: { country: "Belarus", city: "Minsk" },
-      status: "looking for a job too",
-    },
-    {
-      id: '3',
-      followed: false,
-      avatar: "https://html5css.ru/w3images/avatar2.png",
-      fullname: "Anna A.",
-      location: { country: "Belarus", city: "Brest" },
-      status: "new year is coming",
-    },
-  ]
+  users: [],
 };
 
 const usersPageReducer = (state = initialState, action) => {
@@ -75,7 +50,9 @@ const usersPageReducer = (state = initialState, action) => {
       };
 
     case SET_USERS: {
+      debugger;
       return { ...state, users: [...state.users, ...action.users] };
+      // return { ...state, users: [...action.users] };
     }
 
     default:

@@ -1,42 +1,62 @@
 import classes from "./Users.module.css";
+// import React, { useEffect } from "react";
 import React from "react";
+import axios from "axios";
+import userPhoto from "../../assets/images/userPhoto.png";
 
 const Users = (props) => {
+  //  const { users, onSetUsers } = props;
 
-// let users = [{
-//     id: '1',
-//     followed: false,
-//     avatar: "https://html5css.ru/w3images/avatar2.png",
-//     fullname: "Alex A.",
-//     location: { country: "Belarus", city: "Brest" },
-//     status: "looking for a job",
-//   },
-//   {
-//     id: '2',
-//     followed: true,
-//     avatar: "https://html5css.ru/w3images/avatar2.png",
-//     fullname: "Dima K.",
-//     location: { country: "Belarus", city: "Minsk" },
-//     status: "looking for a job too",
-//   },
-//   {
-//     id: '3',
-//     followed: false,
-//     avatar: "https://html5css.ru/w3images/avatar2.png",
-//     fullname: "Anna A.",
-//     location: { country: "Belarus", city: "Brest" },
-//     status: "new year is coming",
-//   },]
+  //  useEffect(() => {
+  //    if (users.length === 0) {
+  //      onSetUsers(usersMock);
+  //    }
+  //  }, [users]);
 
-//   if (props.usersPage.users.length === 0) {
-//     props.onSetUsers(users);
-//   }
+  //   let users = [
+  //     {
+  //       id: "1",
+  //       followed: false,
+  //       avatar: "https://html5css.ru/w3images/avatar2.png",
+  //       fullname: "Alex A.",
+  //       location: { country: "Belarus", city: "Brest" },
+  //       status: "looking for a job",
+  //     },
+  //     {
+  //       id: "2",
+  //       followed: true,
+  //       avatar: "https://html5css.ru/w3images/avatar2.png",
+  //       fullname: "Dima K.",
+  //       location: { country: "Belarus", city: "Minsk" },
+  //       status: "looking for a job too",
+  //     },
+  //     {
+  //       id: "3",
+  //       followed: false,
+  //       avatar: "https://html5css.ru/w3images/avatar2.png",
+  //       fullname: "Anna A.",
+  //       location: { country: "Belarus", city: "Brest" },
+  //       status: "new year is coming",
+  //     },
+  //   ];
+
+  if (props.users.length === 0) {
+    axios
+      .get("https://social-network.samuraijs.com/api/1.0/users")
+      .then((response) => {
+        props.onSetUsers(response.data.items);
+      });
+  }
 
   return (
     <div>
-      {props.usersPage.users.map((user) => (
+      {props.users.map((user) => (
         <div key={user.id} className={classes.user}>
-          <img src={user.avatar} alt="avatar" className={classes.avatar} />
+          <img
+            src={user.photos.small != null ? user.photos.small : userPhoto}
+            alt="avatar"
+            className={classes.avatar}
+          />
           <div className={classes.followButton}>
             {user.followed ? (
               <button
@@ -58,10 +78,10 @@ const Users = (props) => {
           </div>
 
           <div className={classes.description}>
-            <div>{user.fullname}, </div>
+            <div>{user.name}, </div>
             <div>
-              <span>{user.location.country}, </span>
-              <span>{user.location.city}</span>
+              <span>{"user.location.country"}, </span>
+              <span>{"user.location.city"}</span>
             </div>
             <div>{user.status}</div>
           </div>

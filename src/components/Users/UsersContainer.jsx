@@ -6,11 +6,9 @@ import {
 } from "./../../redux/usersPageReducer";
 import { connect } from "react-redux";
 
-let mapStateToProps = (state) => {
-  return {
-    usersPage: state.usersPage,
-  };
-};
+let mapStateToProps = (state) => ({
+  users: state.usersPage.users,
+});
 
 let mapDispatchToProps = (dispatch) => {
   return {
@@ -23,8 +21,8 @@ let mapDispatchToProps = (dispatch) => {
       dispatch(action);
     },
     onSetUsers: (users) => {
-        dispatch(setUsersAC(users))
-    }
+      dispatch(setUsersAC(users));
+    },
   };
 };
 
