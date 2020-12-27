@@ -23,3 +23,11 @@
 .description {
     grid-area: description;
 }
+
+.currentPage {
+    font-weight: bold;
+}
+
+.pageNumbers {
+    text-align: center;
+}
