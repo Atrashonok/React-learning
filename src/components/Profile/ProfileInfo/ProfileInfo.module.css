@@ -16,9 +16,18 @@
 }
 
 .avatar img {
-    height: 200px;
+    width: 200px;
 }
 
 .backgroundImage img {
     width: 980px;
+}
+
+.name {
+    font-size: 30px;
+}
+
+.contacts {
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
