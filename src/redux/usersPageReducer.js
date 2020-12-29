@@ -4,23 +4,23 @@ const SET_USERS = "SET_USERS";
 const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
 const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING";
 
-export const followAC = (userId) => ({
+export const onFollow = (userId) => ({
   type: FOLLOW,
   userId: userId,
 });
-export const unfollowAC = (userId) => ({
+export const onUnfollow = (userId) => ({
   type: UNFOLLOW,
   userId: userId,
 });
-export const setUsersAC = (users) => ({
+export const onSetUsers = (users) => ({
   type: SET_USERS,
   users: users,
 });
-export const setCurrentPageAC = (page) => ({
+export const onSetCurrentPage = (page) => ({
   type: SET_CURRENT_PAGE,
   page,
 });
-export const toggleIsFetchingAC = (isFetching) => ({
+export const onToggleIsFetching = (isFetching) => ({
   type: TOGGLE_IS_FETCHING,
   isFetching,
 });
