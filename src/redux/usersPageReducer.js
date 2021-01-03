@@ -15,7 +15,7 @@ export const onUnfollow = (userId) => ({
 export const onSetUsers = (users) => ({
   type: SET_USERS,
   users: users,
-});
+}); 
 export const onSetCurrentPage = (page) => ({
   type: SET_CURRENT_PAGE,
   page,
