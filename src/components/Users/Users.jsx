@@ -39,15 +39,18 @@ const Users = (props) => {
               className={classes.avatar}
             />
           </NavLink>
-          
+
           <div className={classes.followButton}>
             {user.followed ? (
               <button
+                disabled={props.followingInProgress.some( userId => userId === user.id )}
                 onClick={() => {
+                  props.onToggleFollowingInProgress(true, user.id);
                   followAPI.unfollow(user.id).then((response) => {
                     if (response.resultCode === 0) {
                       props.onUnfollow(user.id);
                     }
+                    props.onToggleFollowingInProgress(false, user.id);
                   });
                 }}
               >
@@ -55,11 +58,14 @@ const Users = (props) => {
               </button>
             ) : (
               <button
+                disabled={props.followingInProgress.some( userId => userId === user.id )}
                 onClick={() => {
+                  props.onToggleFollowingInProgress(true, user.id);
                   followAPI.follow(user.id).then((response) => {
                     if (response.resultCode === 0) {
                       props.onFollow(user.id);
                     }
+                    props.onToggleFollowingInProgress(false, user.id);
                   });
                 }}
               >
