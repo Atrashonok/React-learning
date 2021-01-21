@@ -1,3 +1,5 @@
+import {UsersAPI, followAPI} from '../api/api'
+
 const FOLLOW = "FOLLOW";
 const UNFOLLOW = "UNFOLLOW";
 const SET_USERS = "SET_USERS";
@@ -30,6 +32,42 @@ export const onToggleFollowingInProgress = (followingInProgress, userId) => ({
   followingInProgress,
   userId,
 });
+
+export const getUsersThunkCreator = (currentPage, pageSize) => { 
+    return (dispatch) => {
+        dispatch(onToggleIsFetching(true));
+  
+        UsersAPI.getUsers(currentPage, pageSize).then(
+          (response) => {
+            dispatch(onToggleIsFetching(false));
+            dispatch(onSetUsers(response.items));
+          }
+        );
+    }
+}
+
+export const unfollowThunkCreator = (userId) => {
+    return (dispatch) => {
+        dispatch(onToggleFollowingInProgress(true, userId));
+                  followAPI.unfollow(userId).then((response) => {
+                    if (response.resultCode === 0) {
+                      dispatch(onUnfollow(userId));
+                    }
+                    dispatch(onToggleFollowingInProgress(false, userId));
+                  });
+    }
+} 
+export const followThunkCreator = (userId) => {
+    return (dispatch) => {
+        dispatch(onToggleFollowingInProgress(true, userId));
+                  followAPI.follow(userId).then((response) => {
+                    if (response.resultCode === 0) {
+                      dispatch(onFollow(userId));
+                    }
+                    dispatch(onToggleFollowingInProgress(false, userId));
+                  });
+    }
+} 
 
 let initialState = {
   users: [],

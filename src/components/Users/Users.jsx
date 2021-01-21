@@ -2,7 +2,6 @@ import React from "react";
 import classes from "./Users.module.css";
 import userPhoto from "../../assets/images/userPhoto.png";
 import { NavLink } from "react-router-dom";
-import { followAPI } from "../../api/api";
 
 const Users = (props) => {
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -43,30 +42,22 @@ const Users = (props) => {
           <div className={classes.followButton}>
             {user.followed ? (
               <button
-                disabled={props.followingInProgress.some( userId => userId === user.id )}
+                disabled={props.followingInProgress.some(
+                  (userId) => userId === user.id
+                )}
                 onClick={() => {
-                  props.onToggleFollowingInProgress(true, user.id);
-                  followAPI.unfollow(user.id).then((response) => {
-                    if (response.resultCode === 0) {
-                      props.onUnfollow(user.id);
-                    }
-                    props.onToggleFollowingInProgress(false, user.id);
-                  });
+                  props.unfollowThunkCreator(user.id);
                 }}
               >
                 Unfollow
               </button>
             ) : (
               <button
-                disabled={props.followingInProgress.some( userId => userId === user.id )}
+                disabled={props.followingInProgress.some(
+                  (userId) => userId === user.id
+                )}
                 onClick={() => {
-                  props.onToggleFollowingInProgress(true, user.id);
-                  followAPI.follow(user.id).then((response) => {
-                    if (response.resultCode === 0) {
-                      props.onFollow(user.id);
-                    }
-                    props.onToggleFollowingInProgress(false, user.id);
-                  });
+                  props.followThunkCreator(user.id);
                 }}
               >
                 Follow
