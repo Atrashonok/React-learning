@@ -1,3 +1,5 @@
+import { UsersAPI } from "../api/api";
+
 const UPDATE_NEW_POST_TEXT = "UPDATE_NEW_POST_TEXT";
 const ADD_POST = "ADD_POST";
 const SET_USER_PROFILE = "SET_USER_PROFILE";
@@ -6,11 +8,20 @@ export const updateNewPostTextActionCreator = (newText) => ({
   type: UPDATE_NEW_POST_TEXT,
   newText: newText,
 });
+
 export const addPostActionCreator = () => ({ type: ADD_POST });
+
 export const onSetUserProfile = (profile) => ({
   type: SET_USER_PROFILE,
   profile,
 });
+
+export const getUserProfileThunkCreator = (userId) => (dispatch) => {
+    UsersAPI.getUserById(userId)
+    .then((response) => {
+      dispatch(onSetUserProfile(response));
+    });
+}
 
 let initialState = {
   postsData: [

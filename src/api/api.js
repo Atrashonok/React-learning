@@ -25,7 +25,7 @@ export const authAPI = {
   getAuthUser: () => {
     return axiosInstance.get("auth/me").then((response) => response.data);
   },
-};
+}; 
 
 export const followAPI = {
   unfollow: (userId) => {
